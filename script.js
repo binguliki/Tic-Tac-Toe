@@ -148,11 +148,11 @@ function GameController(
     }
 }
 
-function ScreenController(){
-    let game = GameController('X', 'O');
+function ScreenController(playerOneName, playerTwoName){
+    let game = GameController(playerOneName, playerTwoName);
     const resetBtn = document.querySelector('.reset-btn');
     const resetFunction = () => {
-        game = GameController('X', 'O');
+        game = GameController(playerOneName, playerTwoName);
         updateScreen();
     }
     resetBtn.addEventListener('click', resetFunction);
@@ -177,7 +177,7 @@ function ScreenController(){
         const board = game.getBoard();
         const activePlayer = game.getActivePlayer();
 
-        playerTurnContainer.textContent = `${activePlayer.name}'s turn`;
+        playerTurnContainer.textContent = `${activePlayer.name}'s turn (${activePlayer.id})`;
 
         board.forEach((row, i) => 
             row.forEach((cell, j) => {
@@ -225,4 +225,20 @@ function ScreenController(){
     updateScreen();
 }
 
-ScreenController();
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const playerOneName = document.querySelector('#name1').value;
+    const playerTwoName = document.querySelector('#name2').value;
+    const dialogOverlay = document.getElementById('dialogOverlay');
+    if(playerOneName === playerTwoName){
+        document.getElementById('dialogMessage').textContent = 'Players cannot have same name';
+        return;
+    }
+    const dialogCloseBtn = document.getElementById('dialogCloseBtn');
+    dialogOverlay.style.display = 'none';
+    dialogCloseBtn.disabled = false;
+    form.style.display = 'none';
+
+    ScreenController(playerOneName, playerTwoName);
+})

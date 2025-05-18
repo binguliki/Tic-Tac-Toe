@@ -12,8 +12,18 @@
         <div class="main">
             <div class="dialog-overlay" id="dialogOverlay" hidden>
                 <div class="dialog-box">
+                    <form class="name-form" method="post" action="#">
+                        <label for="name1">Player X name:</label>
+                        <input type="text" id="name1" name="name1" value="player-X" placeholder="Enter player-X name ..." required><br><br>
+
+                        <label for="name2">Player O name:</label>
+                        <input type="text" id="name2" name="name2" value="player-O" placeholder="Enter Player-O name ..." required><br><br>
+
+                        <button class="submit-btn" type="submit">Submit</button>
+                    </form>
+
                     <p id="dialogMessage"></p>
-                    <button id="dialogCloseBtn">x</button>
+                    <button id="dialogCloseBtn" disabled>x</button>
                 </div>
             </div>
 
