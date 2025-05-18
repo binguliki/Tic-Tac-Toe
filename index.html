@@ -2,25 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
     <title>Tic Tac Toe</title>
 </head>
 <body>
     <div class="container">
-        <div class="board">
-            <div class="cell">X</div>
-            <div class="cell">O</div>
-            <div class="cell">X</div>
-            <div class="cell">O</div>
-            <div class="cell">X</div>
-            <div class="cell">O</div>
-            <div class="cell">X</div>
-            <div class="cell">O</div>
-            <div class="cell">X</div>
-        </div>
+        <h1 class="game-title">Let's Play Tic-Tac Toe</h1>
+        <div class="main">
+            <div class="dialog-overlay" id="dialogOverlay" hidden>
+                <div class="dialog-box">
+                    <p id="dialogMessage"></p>
+                    <button id="dialogCloseBtn">x</button>
+                </div>
+            </div>
 
-        <button class="reset">reset</button>
+            <h1 class="turn"></h1>
+            <div class="board"></div>
+            <div class="buttons">
+                <button class="reset-btn"> Reset </button>
+            </div>
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
