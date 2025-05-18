@@ -75,6 +75,7 @@ function GameBoard(){
             return "WIN";
         }
         // Check if its a tie
+        flag = true;
         for(let i=0; i<rows; i++){
             for(let j=0; j<columns; j++){
                 if(board[i][j] === ''){
