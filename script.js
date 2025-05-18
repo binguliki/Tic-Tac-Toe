@@ -207,11 +207,11 @@ function ScreenController(playerOneName, playerTwoName){
         try{
             const state = game.playRound(row, column);
             if(state === 'TIE'){
-                resetFunction();
                 showDialog(`The game is tied !!`);
-            }else if(state === 'WIN'){
                 resetFunction();
+            }else if(state === 'WIN'){
                 showDialog(`${game.getActivePlayer().name} has won !!`);
+                resetFunction();
             }
         }catch(err){
             showDialog(err.message);
